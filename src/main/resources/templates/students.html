@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title> Students List </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}"/>
+
+    </head>
+
+    <body>
+        <div class="main-bar">
+            <a id="homepage" title="Homepage" th:href="@{students}">Home</a>
+            <a th:href="@{/signup}">Create Account</a>
+            <a th:href="@{/login}">Login</a>
+        </div>
+        <div class="container">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                </tr>
+                <tr th:each="student : ${students}">
+                    <td th:text="${student.id}"></td>
+                    <td th:text="${student.userName}"></td>
+                    <td th:text="${student.email}"></td>
+                    <td th:text="${student.password}"></td>
+                    <td>
+                        <a th:href="@{/students/edit/{id} (id=${student.id})}">Update</a>
+                        <a th:href="@{/students/{id} (id=${student.id})}">Delete</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script src="script.js" type="text/javascript"></script>
+
+    </body>
+</html>
