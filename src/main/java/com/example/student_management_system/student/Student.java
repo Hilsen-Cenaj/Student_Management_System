@@ -53,7 +53,7 @@ public class Student {
     @JoinTable(
             name = "student_course",
             joinColumns = @JoinColumn(
-                    name = "student_id", referencedColumnName = "id"
+                    name = "id", referencedColumnName = "id"
             ),
             inverseJoinColumns = @JoinColumn(
                     name = "student_id", referencedColumnName = "id"
