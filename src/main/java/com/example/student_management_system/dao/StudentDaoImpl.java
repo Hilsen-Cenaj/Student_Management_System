@@ -29,7 +29,7 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     public Optional<Student> getStudentByEmail(String email) {
-        String sql = "SELECT id, username, email  FROM student WHERE email = ?";
+        String sql = "SELECT id, username, email, password  FROM student WHERE email = ?";
         Student student = null;
         try {
             student = jdbcTemplate.queryForObject(sql, new Object[]{email}, new StudentRowMapper());

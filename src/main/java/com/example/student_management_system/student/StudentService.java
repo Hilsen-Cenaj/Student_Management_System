@@ -17,9 +17,6 @@ public class StudentService {
         this.studentDao = studentDao;
     }
 
-//    public Student getStudentById(Long id){
-//        return studentRepository.findById(id).get();
-//    }
 //
 //    public Student updateStudent(Student student){
 //        return studentRepository.save(student);
@@ -43,6 +40,11 @@ public class StudentService {
             throw new IllegalStateException("something went wrong");
         }
     }
+
+    public Optional<Student> getStudentByEmail(String email){
+        return studentDao.getStudentByEmail(email);
+    }
+
 //
 //    public void deleteStudent(Student student){
 //        studentRepository.delete(student);

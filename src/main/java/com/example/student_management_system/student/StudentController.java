@@ -1,10 +1,13 @@
 package com.example.student_management_system.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Optional;
 
 @Controller
 //@RequestMapping(path = "/std_mng")
@@ -52,6 +55,11 @@ public class StudentController {
         studentService.addStudent(student);
         return "redirect:/students";
     }
+
+//    @GetMapping("{email}")
+//    public Optional<Student> getStudentByEmail(@PathVariable("email") String email) {
+//        return studentService.getStudentByEmail(email);
+//    }
 
     /**
      * Get update_student.html
