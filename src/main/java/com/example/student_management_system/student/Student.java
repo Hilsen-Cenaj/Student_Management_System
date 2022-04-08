@@ -10,20 +10,20 @@ import java.util.Collection;
         name = "student",
         uniqueConstraints = {
                 @UniqueConstraint(name = "student_email_unique", columnNames = "email"),
-                @UniqueConstraint(name = "student_username_unique", columnNames = "userName")
+                @UniqueConstraint(name = "student_username_unique", columnNames = "username")
         }
 )
 public class Student {
 
     @Id
-    @SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
-            allocationSize = 1
-    )
+//    @SequenceGenerator(
+//            name = "student_sequence",
+//            sequenceName = "student_sequence",
+//            allocationSize = 1
+//    )
     @GeneratedValue(
-            strategy = GenerationType.AUTO,
-            generator = "student_sequence"
+            strategy = GenerationType.AUTO
+//            generator = "student_sequence"
     )
     private Long id;
     @Column(
