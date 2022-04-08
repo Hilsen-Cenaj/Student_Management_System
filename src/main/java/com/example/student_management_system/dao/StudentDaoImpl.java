@@ -33,8 +33,8 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public int insertStudent(Student student) {
-        String sql = "INSERT INTO student(id, username, email, password) VALUES (?, ?, ?, ?)";
-        return jdbcTemplate.update(sql, student.getId(), student.getUserName(), student.getEmail(), student.getPassword());
+        String sql = "INSERT INTO student(username, email, password) VALUES (?, ?, ?)";
+        return jdbcTemplate.update(sql, student.getUserName(), student.getEmail(), student.getPassword());
     }
 
     @Override
