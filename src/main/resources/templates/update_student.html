@@ -20,7 +20,7 @@
     <form id="signupForm" class="wrapper" th:action="@{/students/{id} (id=${student.id})}" th:object="${student}" method="POST" >
         <h2>UPDATE ACCOUNT</h2>
 
-        <input type="text" placeholder="Username" name="userName" required>
+        <input type="text" placeholder="Username" name="username" required>
 
         <input type="email" placeholder="Email" name="email" required>
 

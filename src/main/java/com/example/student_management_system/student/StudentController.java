@@ -74,7 +74,7 @@ public class StudentController {
         Student existingStudent = studentService.getStudentById(id);
 
         existingStudent.setId(id);
-        existingStudent.setUserName(student.getUserName());
+        existingStudent.setUsername(student.getUsername());
         existingStudent.setEmail(student.getEmail());
         existingStudent.setPassword(student.getPassword());
 

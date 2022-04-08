@@ -22,16 +22,16 @@ public class Student {
             allocationSize = 1
     )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
+            strategy = GenerationType.AUTO,
             generator = "student_sequence"
     )
     private Long id;
     @Column(
-            name = "userName",
+            name = "Username",
             nullable = false,
             columnDefinition = "TEXT"
     )
-    private String userName;
+    private String username;
     @Column(
             name = "email",
             nullable = false,
@@ -62,7 +62,7 @@ public class Student {
     private Collection<Course> courses;
 
     public Student(String userName, String email, String password, Collection<Course> courses) {
-        this.userName = userName;
+        this.username = userName;
         this.email = email;
         this.password = password;
         this.courses = courses;
@@ -79,12 +79,12 @@ public class Student {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
