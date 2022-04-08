@@ -3,6 +3,7 @@ package com.example.student_management_system.dao;
 import com.example.student_management_system.student.Student;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface StudentDao {
 
@@ -10,7 +11,7 @@ public interface StudentDao {
 
     List<Student> getStudentById(Long id);
 
-    List<Student> getStudentByEmail(String email);
+    Optional<Student> getStudentByEmail(String email);
 
     int insertStudent(Student student);
 
