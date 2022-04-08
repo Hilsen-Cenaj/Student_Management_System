@@ -1,5 +1,6 @@
 package com.example.student_management_system.student;
 
+import com.example.student_management_system.dao.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,26 +10,26 @@ import java.util.Optional;
 @Service
 public class StudentService {
 
-    private final StudentRepository studentRepository;
+    private StudentDao studentDao;
 
     @Autowired
-    public StudentService(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+    public StudentService(StudentDao studentDao) {
+        this.studentDao = studentDao;
     }
 
-    public Student getStudentById(Long id){
-        return studentRepository.findById(id).get();
-    }
-
-    public Student updateStudent(Student student){
-        return studentRepository.save(student);
-    }
+//    public Student getStudentById(Long id){
+//        return studentRepository.findById(id).get();
+//    }
+//
+//    public Student updateStudent(Student student){
+//        return studentRepository.save(student);
+//    }
 
     /**
      * Return all students in database
      */
     public List<Student> getStudents(){
-        return studentRepository.findAll();
+        return studentDao.getStudents();
     }
 
     /**
@@ -36,16 +37,14 @@ public class StudentService {
      * if email exists throw exception
      * else save student
      */
-    public void saveStudent(Student student){
-        boolean exists = studentRepository.findStudentByEmail(student.getEmail()).isPresent();
-
-        if(exists) {
-            throw new IllegalStateException("Email already taken");
+    public void addStudent(Student student) {
+        int result = studentDao.insertStudent(student);
+        if (result != 1) {
+            throw new IllegalStateException("something went wrong");
         }
-        studentRepository.save(student);
     }
-
-    public void deleteStudent(Student student){
-        studentRepository.delete(student);
-    }
+//
+//    public void deleteStudent(Student student){
+//        studentRepository.delete(student);
+//    }
 }

@@ -49,7 +49,7 @@ public class StudentController {
      */
     @PostMapping("/students")
     public String saveStudent(@ModelAttribute("student") Student student){
-        studentService.saveStudent(student);
+        studentService.addStudent(student);
         return "redirect:/students";
     }
 
@@ -57,36 +57,36 @@ public class StudentController {
      * Get update_student.html
      * We need id to edit Student
      */
-    @GetMapping("/students/edit/{id}")
-    public String editStudentForm(@PathVariable Long id, Model model){
-        model.addAttribute("student", studentService.getStudentById(id));
-        return "update_student";
-    }
+//    @GetMapping("/students/edit/{id}")
+//    public String editStudentForm(@PathVariable Long id, Model model){
+//        model.addAttribute("student", studentService.getStudentById(id));
+//        return "update_student";
+//    }
 
     /**
      *
      */
-    @PostMapping("/students/{id}")
-    public String updateStudent(
-            @PathVariable Long id,
-            @ModelAttribute("student") Student student){
+//    @PostMapping("/students/{id}")
+//    public String updateStudent(
+//            @PathVariable Long id,
+//            @ModelAttribute("student") Student student){
+//
+//        Student existingStudent = studentService.getStudentById(id);
+//
+//        existingStudent.setId(id);
+//        existingStudent.setUserName(student.getUserName());
+//        existingStudent.setEmail(student.getEmail());
+//        existingStudent.setPassword(student.getPassword());
+//
+//        studentService.updateStudent(existingStudent);
+//
+//        return "redirect:/students";
+//    }
 
-        Student existingStudent = studentService.getStudentById(id);
-
-        existingStudent.setId(id);
-        existingStudent.setUserName(student.getUserName());
-        existingStudent.setEmail(student.getEmail());
-        existingStudent.setPassword(student.getPassword());
-
-        studentService.updateStudent(existingStudent);
-
-        return "redirect:/students";
-    }
-
-    @GetMapping("students/{id}")
-    public String deleteStudent(@PathVariable Long id){
-        studentService.deleteStudent(studentService.getStudentById(id));
-        return "redirect:/students";
-    }
+//    @GetMapping("students/{id}")
+//    public String deleteStudent(@PathVariable Long id){
+//        studentService.deleteStudent(studentService.getStudentById(id));
+//        return "redirect:/students";
+//    }
 
 }
